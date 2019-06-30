@@ -1,13 +1,14 @@
 # Author: Scott Willett
 # Version: 01/07/2019
 #
-# Description: 	Loop through a list of email addresses. 
-# 				For each breach found for that email address at haveibeenpwned.com, 
-# 				notify someone once about the breach via email.
+# Description: 	
+# Loop through a list of email addresses. 
+# For each breach found for that email address at haveibeenpwned.com, 
+# notify someone once about the breach via email.
 #
-#				Can be useful to run this daily in your environment and send email notifications through to a ticket system.
+# Can be useful to run this daily in your environment and send email notifications through to a ticket system.
 #
-#				Please change the variables in the VARIABLES section.
+# Please change the variables in the VARIABLES section.
 
 import http.client
 import time
@@ -19,7 +20,7 @@ from email.message import EmailMessage
 ### VARIABLES ###
 
 # A list of users to check - see if they've been pwned. First column should be an email. Needs to be a second column seperated by a ',' char currently
-users_csv = './staff.csv'
+users_csv = './users.csv'
 
 # Where the breaches file exists. Matches emails to breaches (basically to track if this has been discovered before)
 breaches_file = './breaches.txt'
@@ -31,7 +32,7 @@ email_template_file = './email_template.txt'
 email_from = ""
 email_to = ""
 
-# An smtp server to send a notification email about pwned accounts
+# An smtp server + creds to use for sending email notifications
 smtp_server = ''
 smtp_login_email = ''
 smtp_login_pass = ''
