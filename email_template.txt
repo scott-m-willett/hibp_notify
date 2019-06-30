@@ -1,0 +1,10 @@
+The account {email} was involved in a data breach labelled "{breach}" according to the service: Have I Been Pwned?
+
+Details of the breach can be found here: https://haveibeenpwned.com/PwnedWebsites#{breach}
+
+Please follow up with the user to ensure they have (if applicable):
+- Reset their password on that service
+- Ensured that password isn't used anywhere else
+- Training to employ good password management, and use a password manager (lastpass)
+
+(Note: This ticket was logged via an automated script)
