@@ -2,7 +2,7 @@
 # Version: 01/07/2019
 #
 # Description: 	
-# Loop through a list of email addresses. 
+# Iterate through a list of email addresses. 
 # For each breach found for that email address at haveibeenpwned.com, 
 # notify someone once about the breach via email.
 #
@@ -25,7 +25,7 @@ users_csv = './users.csv'
 # Where the breaches file exists. Matches emails to breaches (basically to track if this has been discovered before)
 breaches_file = './breaches.txt'
 
-# A file containing a email canned response when a notification is found.
+# A file containing an email canned response / template. The text within it will be the content of notification emails.
 email_template_file = './email_template.txt'
 
 # With regards to the email notification, specify below who you want the email to be from, and where to send it to
@@ -39,7 +39,7 @@ smtp_login_pass = ''
 
 ### END VARIABLES ###
 
-# Send an email to notify someone of the breach, using the 
+# Send an email to notify someone of the breach
 def email_notify(email, breach):
     subject = "Pwned Account: " + email + " (" + breach + ")"
     template_file = open(email_template_file)	
@@ -75,7 +75,7 @@ users = users.split("\n")
 
 # Loop through the users
 for line in users:
-    time.sleep(2)                    # Required so as to now abuse the api service (rate limited by 1.5 seconds each request)
+    time.sleep(2)                    # Required so as to not abuse the api service (rate limited by 1.5 seconds each request)
     email = line.split(',')[0]        # First column should be the email address 
     api_url = ('/api/v2/breachedaccount/%s?truncateResponse=true' % (email))    # api call for the user
     connection = http.client.HTTPSConnection(domain)                            # The https connection object
